@@ -1,4 +1,4 @@
-package src;
+package src.dsa;
 
 public class Test {
     public static void main(String[] args) {

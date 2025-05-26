@@ -1,4 +1,4 @@
-package src.lld.deccorator;
+package src.lld.deccorator.pizza;
 
 public class VegDelight extends BasePizza{
     @Override

@@ -1,8 +1,8 @@
-package src.lld.deccorator;
+package src.lld.deccorator.pizza;
 
-public class VegDelight extends BasePizza{
+public class NonVegSpicy extends BasePizza{
     @Override
     public int cost() {
-        return 150;
+        return 300;
     }
 }

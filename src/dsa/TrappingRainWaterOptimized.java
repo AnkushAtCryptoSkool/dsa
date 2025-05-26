@@ -1,4 +1,4 @@
-package src;
+package src.dsa;
 
 public class TrappingRainWaterOptimized {
     public static int trap(int[] h) {

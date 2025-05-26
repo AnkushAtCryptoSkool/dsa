@@ -1,2 +1,5 @@
-package src.lld.deccorator;public class BasePizza {
+package src.lld.deccorator.pizza;
+
+public abstract class BasePizza {
+   public abstract int cost();
 }
