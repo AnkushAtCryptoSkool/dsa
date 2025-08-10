@@ -18,6 +18,8 @@ import src.practice_aspora.observer.WhatsappConsumer;
 import src.practice_aspora.proxy.ProxyService;
 import src.practice_aspora.strategy.ShoppingCart;
 import src.practice_aspora.strategy.VIPDiscountStrategy;
+import src.practice_aspora.template.ReportGenerator;
+import src.practice_aspora.template.SalesReportGenerator;
 
 public class MainClass {
     public static void main(String[] args) {
@@ -79,6 +81,10 @@ public class MainClass {
 //        remoteControl.pressButton();
 //        remoteControl.setCommand(lightOffCommand);
 //        remoteControl.pressButton();
+
+        // Template Design Pattern
+        ReportGenerator salesReportGenerator = new SalesReportGenerator();
+         salesReportGenerator.generateReport();
 
     }
 
