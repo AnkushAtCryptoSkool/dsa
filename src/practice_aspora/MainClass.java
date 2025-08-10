@@ -1,10 +1,15 @@
 package src.practice_aspora;
 
+import src.lld.observerDesignPattern.Observer;
 import src.practice_aspora.builder.Computer;
 import src.practice_aspora.factory.PaymentType;
 import src.practice_aspora.factory.Processor;
 import src.practice_aspora.factory.Txn;
 import src.practice_aspora.factory.TxnProcessor;
+import src.practice_aspora.observer.Consumer;
+import src.practice_aspora.observer.PaymentNotifier;
+import src.practice_aspora.observer.SMSConsumer;
+import src.practice_aspora.observer.WhatsappConsumer;
 
 public class MainClass {
     public static void main(String[] args) {
@@ -28,11 +33,22 @@ public class MainClass {
 
 
         // builder Pattern
-        Computer computer = new Computer.builder()
-                .cpu("Intel A4")
-                .ram("16 GB")
-                .storage("1 TB").build();
-        System.out.println(computer.toString());
+//        Computer computer = new Computer.builder()
+//                .cpu("Intel A4")
+//                .ram("16 GB")
+//                .storage("1 TB").build();
+//        System.out.println(computer.toString());
+
+ //   Observer Design Pattern
+        Consumer whatsappConsumer = new WhatsappConsumer();
+        Consumer smsConsumer = new SMSConsumer();
+
+        PaymentNotifier notifier = new PaymentNotifier();
+        notifier.registerConsumers(whatsappConsumer);
+        notifier.registerConsumers(smsConsumer);
+        notifier.updateInfo("Rs 201 received at Phone Pe");
+
+
     }
 
 }
