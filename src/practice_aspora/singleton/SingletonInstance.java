@@ -1,4 +1,4 @@
-package src.practice_aspora;
+package src.practice_aspora.singleton;
 
 public class SingletonInstance {
     private static volatile SingletonInstance singletonInstance;
