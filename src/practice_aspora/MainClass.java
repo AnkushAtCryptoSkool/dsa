@@ -14,6 +14,8 @@ import src.practice_aspora.observer.Consumer;
 import src.practice_aspora.observer.PaymentNotifier;
 import src.practice_aspora.observer.SMSConsumer;
 import src.practice_aspora.observer.WhatsappConsumer;
+import src.practice_aspora.strategy.ShoppingCart;
+import src.practice_aspora.strategy.VIPDiscountStrategy;
 
 public class MainClass {
     public static void main(String[] args) {
@@ -53,8 +55,13 @@ public class MainClass {
 //        notifier.updateInfo("Rs 201 received at Phone Pe");
 
         // Decorater Pattern
-        BasePizza1 extraCheeseVegDelight = new ExtraCheese(new ChickenSpecial());
-        System.out.println(extraCheeseVegDelight.cost());
+//        BasePizza1 extraCheeseVegDelight = new ExtraCheese(new ChickenSpecial());
+//        System.out.println(extraCheeseVegDelight.cost());
+
+        // Strategy Design Pattern
+        ShoppingCart shoppingCart = new ShoppingCart(new VIPDiscountStrategy());
+        System.out.println("Shopping cart final value for VIP customers after discount : " + shoppingCart.finalAmount(1000));
+
     }
 
 }
