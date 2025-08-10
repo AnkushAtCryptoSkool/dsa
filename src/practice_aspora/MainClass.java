@@ -2,6 +2,7 @@ package src.practice_aspora;
 
 import src.lld.observerDesignPattern.Observer;
 import src.practice_aspora.builder.Computer;
+import src.practice_aspora.chainOfResponsibility.*;
 import src.practice_aspora.command.*;
 import src.practice_aspora.decorator.bases.BasePizza1;
 import src.practice_aspora.decorator.bases.ChickenSpecial;
@@ -83,8 +84,25 @@ public class MainClass {
 //        remoteControl.pressButton();
 
         // Template Design Pattern
-        ReportGenerator salesReportGenerator = new SalesReportGenerator();
-         salesReportGenerator.generateReport();
+//        ReportGenerator salesReportGenerator = new SalesReportGenerator();
+//         salesReportGenerator.generateReport();
+
+        // Chain of Responsibility
+        Request r1 = new Request("P2");
+        Request r2 = new Request("P1");
+        Request r3 = new Request("P0");
+        Request r4 = new Request("P3");
+        SupportHandler l1 = new LevelOnHandler();
+        SupportHandler l2 = new LevelTwoHandler();
+        SupportHandler l3 = new LevelThreeHandler();
+        l1.handleNext(l2);
+        l2.handleNext(l3);
+
+        l1.processRequest(r1);
+        l1.processRequest(r2);
+        l1.processRequest(r3);
+        l1.processRequest(r4);
+
 
     }
 
