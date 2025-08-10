@@ -2,6 +2,10 @@ package src.practice_aspora;
 
 import src.lld.observerDesignPattern.Observer;
 import src.practice_aspora.builder.Computer;
+import src.practice_aspora.decorator.bases.BasePizza1;
+import src.practice_aspora.decorator.bases.ChickenSpecial;
+import src.practice_aspora.decorator.bases.VegDelight;
+import src.practice_aspora.decorator.toppings.ExtraCheese;
 import src.practice_aspora.factory.PaymentType;
 import src.practice_aspora.factory.Processor;
 import src.practice_aspora.factory.Txn;
@@ -40,15 +44,17 @@ public class MainClass {
 //        System.out.println(computer.toString());
 
  //   Observer Design Pattern
-        Consumer whatsappConsumer = new WhatsappConsumer();
-        Consumer smsConsumer = new SMSConsumer();
+//        Consumer whatsappConsumer = new WhatsappConsumer();
+//        Consumer smsConsumer = new SMSConsumer();
+//
+//        PaymentNotifier notifier = new PaymentNotifier();
+//        notifier.registerConsumers(whatsappConsumer);
+//        notifier.registerConsumers(smsConsumer);
+//        notifier.updateInfo("Rs 201 received at Phone Pe");
 
-        PaymentNotifier notifier = new PaymentNotifier();
-        notifier.registerConsumers(whatsappConsumer);
-        notifier.registerConsumers(smsConsumer);
-        notifier.updateInfo("Rs 201 received at Phone Pe");
-
-
+        // Decorater Pattern
+        BasePizza1 extraCheeseVegDelight = new ExtraCheese(new ChickenSpecial());
+        System.out.println(extraCheeseVegDelight.cost());
     }
 
 }
