@@ -9,18 +9,26 @@ public class GraphV1 {
         int node;
         int weight;
         Pair(int n,int w){
-
+           node = n;
+           weight = w;
         }
 
+        @Override
+        public String toString() {
+            return "(" + node + " , "  + weight + ")";
+        }
     }
     int adjacencyMatrix[][];
     List<List<Integer>> adjList;
+    List<List<Pair>> adjListWithWeight;
 
     GraphV1(int nodes){
         adjacencyMatrix = new int[nodes][nodes];
        adjList = new ArrayList<>();
+       adjListWithWeight = new ArrayList<>();
         for (int i = 0; i < nodes; i++) {
             adjList.add(new ArrayList<>());
+            adjListWithWeight.add(new ArrayList<>());
         }
     }
 
@@ -45,6 +53,23 @@ public class GraphV1 {
             }else{
                 adjList.get(u).add(v);
                 adjList.get(v).add(u);
+            }
+        }
+    }
+
+    public void addEdgesToAdjListWithWeights(int[][] edges, boolean directed){
+        for( int edge[] : edges){
+            int u = edge[0];
+            int v = edge[1];
+            int w = edge[2];
+            if(directed){
+                Pair p = new Pair(v,w);
+                adjListWithWeight.get(u).add(p);
+            }else{
+                Pair p1 = new Pair(v,w);
+                Pair p2 = new Pair(u,w);
+                adjListWithWeight.get(u).add(p1);
+                adjListWithWeight.get(v).add(p2);
             }
         }
     }
@@ -87,6 +112,21 @@ public class GraphV1 {
         }
     }
 
+    public void printAdjListWithWeights(){
+        for (int i=0;i<adjListWithWeight.size();i++){
+            System.out.print(i + " -> ");
+            System.out.print("[");
+            for (int j = 0; j < adjListWithWeight.get(i).size(); j++) {
+                System.out.print(adjListWithWeight.get(i).get(j));
+                if(j != adjListWithWeight.get(i).size() - 1){
+                    System.out.print( ", ");
+                }
+            }
+            System.out.print("]");
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         int edges[][] = {{0,1},{2,0},{1,2}};
         withoutWeightGraps(edges);
@@ -94,6 +134,8 @@ public class GraphV1 {
         withWeightGraps(edgesWithWeights);
         System.out.println("----------  Printing List -----------");
         withoutWeightList(edges);
+        System.out.println("---------- Printing Weigtd list ------------");
+        withWeightList(edgesWithWeights);
     }
 
     private static void withoutWeightGraps(int[][] edges) {
@@ -121,6 +163,20 @@ public class GraphV1 {
         System.out.println("Printing undirected List");
         graph1.printAdjList();
     }
+
+    private static void withWeightList(int[][] edges) {
+        int nodes = edges.length;
+        GraphV1 graph = new GraphV1(nodes);
+        graph.addEdgesToAdjListWithWeights(edges,true);
+        System.out.println("Printing directed List");
+        graph.printAdjListWithWeights();
+
+        GraphV1 graph1 = new GraphV1(nodes);
+        graph1.addEdgesToAdjListWithWeights(edges,false);
+        System.out.println("Printing undirected List");
+        graph1.printAdjListWithWeights();
+    }
+
 
     private static void withWeightGraps(int[][] edges) {
         int nodes = edges.length;
