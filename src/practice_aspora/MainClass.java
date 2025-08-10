@@ -14,6 +14,7 @@ import src.practice_aspora.observer.Consumer;
 import src.practice_aspora.observer.PaymentNotifier;
 import src.practice_aspora.observer.SMSConsumer;
 import src.practice_aspora.observer.WhatsappConsumer;
+import src.practice_aspora.proxy.ProxyService;
 import src.practice_aspora.strategy.ShoppingCart;
 import src.practice_aspora.strategy.VIPDiscountStrategy;
 
@@ -59,8 +60,13 @@ public class MainClass {
 //        System.out.println(extraCheeseVegDelight.cost());
 
         // Strategy Design Pattern
-        ShoppingCart shoppingCart = new ShoppingCart(new VIPDiscountStrategy());
-        System.out.println("Shopping cart final value for VIP customers after discount : " + shoppingCart.finalAmount(1000));
+//        ShoppingCart shoppingCart = new ShoppingCart(new VIPDiscountStrategy());
+//        System.out.println("Shopping cart final value for VIP customers after discount : " + shoppingCart.finalAmount(1000));
+
+        // Proxy Service code
+        //. It acts as an intermediary that wraps the real object and can add additional behavior before or after forwarding requests to the actual object.
+        ProxyService proxyService = new ProxyService();
+        proxyService.execute();
 
     }
 
