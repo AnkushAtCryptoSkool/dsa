@@ -2,6 +2,7 @@ package src.practice_aspora;
 
 import src.lld.observerDesignPattern.Observer;
 import src.practice_aspora.builder.Computer;
+import src.practice_aspora.command.*;
 import src.practice_aspora.decorator.bases.BasePizza1;
 import src.practice_aspora.decorator.bases.ChickenSpecial;
 import src.practice_aspora.decorator.bases.VegDelight;
@@ -64,9 +65,20 @@ public class MainClass {
 //        System.out.println("Shopping cart final value for VIP customers after discount : " + shoppingCart.finalAmount(1000));
 
         // Proxy Service code
-        //. It acts as an intermediary that wraps the real object and can add additional behavior before or after forwarding requests to the actual object.
-        ProxyService proxyService = new ProxyService();
-        proxyService.execute();
+        //. It acts as an intermediary that wraps the real object
+        // and can add additional behavior before or after forwarding requests to the actual object.
+//        ProxyService proxyService = new ProxyService();
+//        proxyService.execute();
+
+        // Command DESIGN PATTERN
+//        Light light = new Light();
+//        Command lightOnCommand = new LightOnCommand(light);
+//        Command lightOffCommand = new LightOffCommand(light);
+//        RemoteControl remoteControl = new RemoteControl();
+//        remoteControl.setCommand(lightOnCommand);
+//        remoteControl.pressButton();
+//        remoteControl.setCommand(lightOffCommand);
+//        remoteControl.pressButton();
 
     }
 
