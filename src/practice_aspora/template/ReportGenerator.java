@@ -1,8 +1,8 @@
 package src.practice_aspora.template;
 
-public abstract class ReportGenerator {
+public interface ReportGenerator {
 
-    public void generateReport(){
+    public default void generateReport(){
         fetchData();
         anaylzeData();
         formatData();
@@ -11,7 +11,7 @@ public abstract class ReportGenerator {
 
     public abstract void fetchData();
     public abstract void anaylzeData();
-    public void formatData(){
+     default void formatData(){
         System.out.println("Default formatting applied on report!!");
     }
     public abstract void printReport();

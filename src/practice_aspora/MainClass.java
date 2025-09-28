@@ -107,8 +107,8 @@ public class MainClass {
 //        l1.processRequest(r4);
 
         // Adapter Design Pattern
-        MainPaymentProcessor processor = new PayementAdapter(new ThirdPartyLegacyPayementGateway());
-        processor.pay(20000.0);
+//        MainPaymentProcessor processor = new PayementAdapter(new ThirdPartyLegacyPayementGateway());
+//        processor.pay(20000.0);
     }
 
 }

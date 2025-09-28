@@ -1,6 +1,6 @@
 package src.practice_aspora.template;
 
-public class SalesReportGenerator extends ReportGenerator{
+public class SalesReportGenerator implements ReportGenerator{
     @Override
     public void fetchData() {
         System.out.println("Sales data fetched from DB");
